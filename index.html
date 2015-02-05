@@ -1,0 +1,27 @@
+<html ng-app="mp3Player">
+<head>
+  <title>mp3Player</title>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="main.js"></script>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class = "main" ng-controller = "playerController">
+    <button type="button" ng-click="backFolder()">Back</button>
+    <div class = "list">
+      <div
+        ng-repeat="folder in listFolder track by $index"
+        ng-click="openFolder(folder)"
+        >
+        {{ folder.name }} {{folder.dir}}
+      </div>
+    </div>
+    <div class="player">
+      <div class="nowPlaying">{{ nowPlaying }}</div>
+      <button type="button" id="play" ng-click="play()">Play</button>
+      <button type="button" id="play" ng-click="stop()">Stop</button>
+      <button type="button" id="play" ng-click="next()">Next</button>
+    </div>
+  </div>
+</body>
+</html>
